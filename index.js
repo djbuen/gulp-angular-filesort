@@ -17,8 +17,11 @@ module.exports = function angularFilesort () {
         return this.emit('error', new PluginError(PLUGIN_NAME, 'File: "' + file.relative + '" without content. You have to read it with gulp.src(..)'));
       }
 
-      if(file.relative.indexOf('react-') > -1)
+      if(file.relative.indexOf('react-') > -1) {
+          files.push(file)
           return;
+      }
+
       var deps;
       try {
         deps = ngDep(file.contents);
