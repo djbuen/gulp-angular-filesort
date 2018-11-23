@@ -21,6 +21,9 @@ module.exports = function angularFilesort() {
       return;
     }
 
+    // if sees react directive
+    if(file.relative.indexOf('react-') > -1)
+        return;
     // Streams not supported
     if (file.isStream()) {
       /* jshint validthis:true */
